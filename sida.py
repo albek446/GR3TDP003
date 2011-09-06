@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -8,7 +8,7 @@ def hello():
 
 @app.route("/sida")
 def sida():
-  return "Working title goes here"
+  return render_template("layout.html")
   
 @app.route("/project/<int:id>")
 def getProj(id):
