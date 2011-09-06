@@ -15,4 +15,4 @@ def getProj(id):
   return "Projekt med id#" + str(id) + " goes here!"
 
 if __name__ == "__main__":
-  app.run()
+  app.run(debug = True)
