@@ -1,5 +1,28 @@
-<title>&lt;Working title goes here&gt;</title>
-<div class="page">
-    &lt;Header goes here&gt;
-    {% block body %}{% endblock %}
-</div>
+<!doctype html>
+<html>
+	<head>
+		<title>&lt;Working title goes here&gt;</title>
+		<meta content="encoding: UTF-8"/>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+		<div id="container">
+			<div class="mainpage">
+				<div id="title"><h2>{% block title %}{% endblock %}</h2></div>
+				<div id="images">{% block images %}{% endblock %}</div>
+				<div id="content">
+		    		{% block content %}{% endblock %}
+				</div>
+			</div>
+			<div class="sidebar">
+				<div id="title">Sidebar</div>
+
+			    <p>Projekt:</p>
+			    <ul>{% for project in get_sidebar_projects() %}
+			    	<li><a href="/project/{{ project['id'] }}">{{ project['title'] }}</a></li>{% endfor %}
+			    </ul>
+			<span id="copyleft"><p id="copyleft">&copy;</p>Alexander "Ace" Olofsson<br/>Albin Ekberg</span>
+			</div>
+		</div>
+	</body>
+</html>
