@@ -27,6 +27,10 @@ def sida():
 def banan():
   return render_template("banan.html")
 
+@app.route("/search")
+def search():
+  return render_template("banan.html")
+
 @app.route("/project/<int:id>")
 def getProj(id):
   return "Projekt med id#" + str(id) + " goes here!"

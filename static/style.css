@@ -1,96 +1,116 @@
 body {
-  font-family: arial;
-  background-color: #fff;
-  color: #000;
-}
+        font-family: arial;
+        background-color: #fff;
+        color: #000;
+      }
 
-div#container {
-  padding-left: 266px;
-}
+      div#container {
+        padding-left: 266px;
+      }
 
-div.sidebar {
-  border-right: solid 1px #000;
-  
-  float: left;
-  position: fixed;
-  width: 256px;
-  height: 100%;
+      div.sidebar {
+        border-right: solid 1px #000;
+        
+        float: left;
+        position: fixed;
+        width: 256px;
+        height: 100%;
 
-  top: 0;
-  left: 0;
-  padding: 5px;
-}
+        top: 0;
+        left: 0;
+        padding: 5px;
+      }
 
-div.sidebar p {
-  margin: 5px;
-}
+      div.sidebar p {
+        margin: 5px;
+      }
 
-div.sidebar ul {
-  list-style-type: none;
-  margin: 15px 2px 15px 4px;
-  padding: 0px;
-}
+      div.sidebar ul {
+        list-style-type: none;
+        margin: 15px 2px 15px 4px;
+        padding: 0px;
+      }
 
-div.sidebar ul li {
-  margin: 2px;
-}
+      div.sidebar ul li {
+        margin: 2px;
+      }
 
-div.sidebar ul li a {
-  color: #000;
-}
+      div.sidebar ul li a {
+        color: #000;
+      }
 
-div.mainpage {
-  border: dotted 1px #000;
-  width: 100%;
-}
+      div.mainpage {
+        border: dotted 1px #000;
+        width: 100%;
+      }
 
-div#title {
-  width: 100%;
-  text-align: center;
-  font-size: 26pt;
-}
+      div.title {
+        width: 100%;
+        text-align: center;
+        font-size: 26pt;
+      }
 
-div#title h2 {
-  margin: 2px;
-}
+      div.title h2 {
+        margin: 2px;
+      }
 
-div#images {
-  display: block;
-  text-align: center;
+      div#screenshots {
+        display: block;
+        text-align: center;
 
-  height: 136px;
-  width: 100%;
-  margin: 2px;
-}
+        height: 136px;
+        width: 100%;
+        margin: 2px;
+      }
 
-div#images img {
-  display: block;
+      div#screenshots img {
+        display: block;
 
-  max-width: 128px;
-  max-height: 128px;
+        max-width: 128px;
+        max-height: 128px;
 
-  margin: 12px;
-  float: left;
+        margin: 12px;
+        float: left;
 
-  border: solid 1px #aaa;
-  box-shadow: 2px 2px 5px #888;
-}
+        border: solid 1px #aaa;
+        box-shadow: 2px 2px 5px #888;
 
-div#content {
-  margin: 5px;
-}
+        border-radius: 10px;
+      }
 
-span#copyleft {
-  position: absolute;
-  bottom: 12px;
-  left: 24px;
-  color: #aaa;
-  font-size: 8pt;
-}
+      div#content {
+        margin: 5px;
+      }
 
-p#copyleft {
-  position: absolute;
-  left: -22px;
-  bottom: -2px;
-  font-size: 12pt;
-} 
+      div#copyleft {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        color: #aaa;
+        font-size: 8pt;
+
+        margin: 2px;
+      }
+
+      input#search {
+        position: absolute;
+
+        width: 250px;
+
+        left: 0px;
+        bottom: 0px;
+        margin: 4px 4px 16px;
+      }
+
+      div.fullwidth {
+        width: 100%;
+        text-align: center;
+
+        margin-top: 5px;
+      }
+
+      span.thick {
+        font-size: 32pt;
+        text-decoration: bold;
+        margin: 2px;
+      }

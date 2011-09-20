@@ -1,28 +1,41 @@
-<!doctype html>
-<html>
-	<head>
-		<title>&lt;Working title goes here&gt;</title>
-		<meta content="encoding: UTF-8"/>
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-	</head>
-	<body>
-		<div id="container">
-			<div class="mainpage">
-				<div id="title"><h2>{% block title %}{% endblock %}</h2></div>
-				<div id="images">{% block images %}{% endblock %}</div>
-				<div id="content">
-		    		{% block content %}{% endblock %}
-				</div>
-			</div>
-			<div class="sidebar">
-				<div id="title">Sidebar</div>
-
-			    <p>Projekt:</p>
-			    <ul>{% for project in get_sidebar_projects() %}
-			    	<li><a href="/project/{{ project['id'] }}">{{ project['title'] }}</a></li>{% endfor %}
-			    </ul>
-			<span id="copyleft"><p id="copyleft">&copy;</p>Alexander "Ace" Olofsson<br/>Albin Ekberg</span>
-			</div>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html version="-//W3C//DTD XHTML 1.1//EN"
+      xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/1999/xhtml
+                          http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
+  <head>
+    <title>Title goes here</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <form action="search" method="post">
+    <div id="container">
+	  <div class="mainpage">
+		<div class="title"><span class="thick">{% block title %}{% endblock %}</span></div>
+		<div id="screenshots">{% block images %}{% endblock %}</div>
+		<div id="content">
+		  {% block content %}{% endblock %}
 		</div>
-	</body>
+	  </div>
+	  <div class="sidebar">
+		<div class="title">Sidebar</div>
+
+		<p>Projekt:</p>
+		<ul>{% for project in get_sidebar_projects() %}
+		  <li><a href="/project/{{ project['id'] }}">{{ project['title'] }}</a></li>{% endfor %}
+        </ul>
+
+        <input id="search" type="text" name="text" value="Search for projects!"
+        	   onfocus="this.value = (this.value=='Search for projects!')?'':this.value;"
+        	   onblur="this.value = (this.value=='')?'Search for projects!':this.value;"/>
+      </div>
+
+  	</div>
+    <div id="copyleft">&copy; Alexander "Ace" Olofsson, Albin Ekberg</div>
+    </form>
+  </body>
 </html>

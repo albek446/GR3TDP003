@@ -1,8 +1,15 @@
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html version="-//W3C//DTD XHTML 1.1//EN"
+      xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/1999/xhtml
+                          http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
   <head>
     <title></title>
-    <meta content="">
-    <style>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <style type="text/css">
       body {
         font-family: arial;
         background-color: #fff;
@@ -49,13 +56,13 @@
         width: 100%;
       }
 
-      div#title {
+      div.title {
         width: 100%;
         text-align: center;
         font-size: 26pt;
       }
 
-      div#title h2 {
+      div.title h2 {
         margin: 2px;
       }
 
@@ -79,32 +86,53 @@
 
         border: solid 1px #aaa;
         box-shadow: 2px 2px 5px #888;
+
+        border-radius: 10px;
       }
 
       div#content {
         margin: 5px;
       }
 
-      span#copyleft {
-        position: absolute;
-        bottom: 12px;
-        left: 24px;
+      div#copyleft {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
         color: #aaa;
         font-size: 8pt;
+
+        margin: 2px;
       }
 
-      p#copyleft {
+      input#search {
         position: absolute;
-        left: -22px;
-        bottom: -2px;
-        font-size: 12pt;
+
+        width: 250px;
+
+        left: 0px;
+        bottom: 0px;
+        margin: 4px 4px 16px;
+      }
+
+      div.fullwidth {
+        width: 100%;
+        text-align: center;
+
+        margin-top: 5px;
+      }
+
+      span.thick {
+        font-size: 32pt;
+        text-decoration: bold;
+        margin: 2px;
       }
     </style>
   </head>
   <body>
+    <form action="#" method="post">
     <div id="container">
       <div class="mainpage">
-        <div id="title"><h2>TITLE</h2></div>
+        <div class="title"><span class="thick">TITLE</span></div>
         <div id="screenshots"><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/></div>
         <div id="content">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -117,8 +145,7 @@
       </div>
 
     	<div class="sidebar">
-        <div id="title">Sidebar</div>
-
+        <div class="title">Sidebar</div>
         <p>Projekt:</p>
         <ul>
           <li><a href="#">Don't click me, asshole</a></li>
@@ -128,8 +155,11 @@
           <li><a href="#">Don't click me</a></li>
           <li><a href="#">Don't click me</a></li>
         </ul>
-    		<span id="copyleft"><p id="copyleft">&copy;</p>Alexander "Ace" Olofsson<br/>Albin Ekberg</span>
-    	</div>
+          <input id="search" type="text" name="text" value="Search for projects!"/>
+      </div>
+
   	</div>
+    <div id="copyleft">&copy; Alexander "Ace" Olofsson, Albin Ekberg</div>
+    </form>
   </body>
 </html>
