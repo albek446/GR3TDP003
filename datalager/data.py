@@ -102,7 +102,7 @@ def retrieve_technique_stats():
             if tek in proj[u'techniques_used']:
                 temp[u'count'] += 1
                 temp[u'projects'].append({u"id": proj[u'project_no'], u"name": proj[u'project_name']})
-                temp[u'projects'].sort(key=lambda p: p[u'name'])
-
+                
+        temp[u'projects'].sort(key=lambda p: p[u'name'])
         returlist.append(temp)
     return (errorKod, returlist)
