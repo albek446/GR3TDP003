@@ -33,7 +33,7 @@ def search():
 
 @app.route("/project/<int:id>")
 def getProj(id):
-  return "Projekt med id#" + str(id) + " goes here!"
+  return "Projekt med id #" + str(id) + " goes here!"
 
 if __name__ == "__main__":
   app.run(debug = True, port=8080, host='0.0.0.0')
