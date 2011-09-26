@@ -4,7 +4,7 @@
 import csv
 projektLista = []
 teknikLista = []
-errorKod = 1
+errorkod = lambda: len(projektLista)==0
 
 def UnicodeDictReader(utf8_data):
     csv_reader = csv.DictReader(utf8_data)
@@ -45,16 +45,16 @@ def init():
 
     teknikLista.sort()
 
-    global errorKod
-    errorKod = 0
-
 def project_count():
-    return (errorKod, len(projektLista))
+    return (errorkod(), len(projektLista))
 
 def lookup_project(id):
+    if errorkod() == 1:
+        return (errorkod(), None)
+
     for proj in projektLista:
         if proj['project_no'] == id:
-            return (errorKod, proj)
+            return (errorkod(), proj)
 
     return (2, None)
 
@@ -90,10 +90,10 @@ def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, s
     if sort_order == 'desc':
         returlist.reverse()
 
-    return (errorKod, returlist)
+    return (errorkod(), returlist)
 
 def retrieve_techniques():
-    return (errorKod, teknikLista)
+    return (errorkod(), teknikLista)
 
 def retrieve_technique_stats():
     returlist = []
@@ -107,4 +107,4 @@ def retrieve_technique_stats():
                 
         temp[u'projects'].sort(key=lambda p: p[u'name'])
         returlist.append(temp)
-    return (errorKod, returlist)
+    return (errorkod(), returlist)
