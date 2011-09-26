@@ -49,7 +49,7 @@ def project_count():
     return (errorkod(), len(projektLista))
 
 def lookup_project(id):
-    if errorkod() == 1:
+    if errorkod():
         return (errorkod(), None)
 
     for proj in projektLista:
