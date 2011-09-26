@@ -66,8 +66,10 @@ def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, s
             for s in search_fields:
                 if isinstance(i[s], int) or isinstance(i[s], float):
                     sField = unicode(str(i[s]), 'utf-8')
+                elif isinstance(i[s], list):
+                    sField = u','.join(i[s])
                 else:
-                    sField = i[s]
+                    sField = i[s]            
 
                 if sField.lower().find(unicode(search, 'utf-8').lower()) != -1:
                     add = True
