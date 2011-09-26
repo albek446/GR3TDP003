@@ -5,6 +5,7 @@ import csv
 projektLista = []
 teknikLista = []
 errorkod = lambda: len(projektLista)==0
+unic = lambda val: unicode(val, 'utf-8')
 
 def UnicodeDictReader(utf8_data):
     csv_reader = csv.DictReader(utf8_data)
@@ -18,9 +19,9 @@ def UnicodeDictReader(utf8_data):
                 except ValueError:
                     val = float(value)
 
-                temp[unicode(key, 'utf-8')] = val
+                temp[unic(key)] = val
             else:
-                temp[unicode(key, 'utf-8')] = unicode(value, 'utf-8')
+                temp[unic(key)] = unic(value)
 
         ret.append(temp)
 
@@ -36,9 +37,9 @@ def init():
 
         for i in tekReader:
             for j in i:
-                row[u'techniques_used'].append(unicode(j, 'utf-8'))
+                row[u'techniques_used'].append(unic(j))
                 if not j in teknikLista:
-                    teknikLista.append(unicode(j, 'utf-8'))
+                    teknikLista.append(unic(j))
         
         row[u'techniques_used'].sort()
         projektLista.append(row)
@@ -65,13 +66,13 @@ def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, s
         if search != None and search_fields != None:
             for s in search_fields:
                 if isinstance(i[s], int) or isinstance(i[s], float):
-                    sField = unicode(str(i[s]), 'utf-8')
+                    sField = unic(str(i[s]))
                 elif isinstance(i[s], list):
                     sField = u','.join(i[s])
                 else:
                     sField = i[s]            
 
-                if sField.lower().find(unicode(search, 'utf-8').lower()) != -1:
+                if sField.lower().find(unic(search).lower()) != -1:
                     add = True
                     break
         else:
