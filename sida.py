@@ -32,7 +32,7 @@ def sida():
 def banan():
   return render_template("banan.html")
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
   return render_template("banan.html")
 

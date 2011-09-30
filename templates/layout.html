@@ -12,14 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
-    <form action="search" method="post">
     <div id="container">
 	  <div class="mainpage">
-		<div class="title"><span class="thick">{% block title %}{% endblock %}</span></div>
-		<div id="screenshots">{% block images %}{% endblock %}</div>
-		<div id="content">
 		  {% block content %}{% endblock %}
-		</div>
 	  </div>
 	  <div class="sidebar">
 		<div class="title">Sidebar</div>
@@ -28,14 +23,15 @@
 		<ul>{% for project in get_sidebar_projects() %}
 		  <li><a href="/project/{{ project['id'] }}">{{ project['title'] }}</a></li>{% endfor %}
         </ul>
-
-        <input id="search" type="text" name="text" value="Search for projects!"
-        	   onfocus="this.value = (this.value=='Search for projects!')?'':this.value;"
-        	   onblur="this.value = (this.value=='')?'Search for projects!':this.value;"/>
+        <form action="/search" method="post">
+          <div>
+            <input id="search" type="text" name="text" value="Search for projects!"
+          	   onfocus="this.value = (this.value=='Search for projects!')?'':this.value;"
+          	   onblur="this.value = (this.value=='')?'Search for projects!':this.value;"/>
+          </div>
+        </form>
       </div>
-
   	</div>
     <div id="copyleft">&copy; Alexander "Ace" Olofsson, Albin Ekberg</div>
-    </form>
   </body>
 </html>

@@ -1,4 +1,22 @@
 {% extends "layout.html" %}
-{% block title %}{{ project['project_name'] }}{% endblock %}
-{% block images %}{% endblock %}
-{% block content %}{{ project }}{% endblock %}
+{% block content %}
+	<div class="title"><span class="thick">{{ project['project_name'] }}</span></div>
+	<div id="content">
+		<table>
+			{% for k,v in project.iteritems() %}
+				<tr>
+					<th style="text-align: left">{{k}}:</th>
+					{% if v is sequence and not v is string %}
+						<td>
+							{% for a in v %}
+								{{a}}{% if v.index(a) < v.__len__()-1 %},{% endif %}
+							{% endfor %}
+						</td>
+					{% else %}
+						<td>{{v}}</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+{% endblock %}

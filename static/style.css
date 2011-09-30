@@ -9,6 +9,7 @@ body {
       }
 
       div.sidebar {
+        background-color: #fff;
         border-right: solid 1px #000;
         
         float: left;
@@ -40,7 +41,7 @@ body {
       }
 
       div.mainpage {
-        border: dotted 1px #000;
+        /*border: dotted 1px #000;*/
         width: 100%;
       }
 
