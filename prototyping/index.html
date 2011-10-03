@@ -16,6 +16,14 @@
         color: #000;
       }
 
+      a {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
       div#container {
         padding-left: 266px;
       }
@@ -121,6 +129,10 @@
         margin-top: 5px;
       }
 
+      img.project {
+        margin-right: 4px;
+      }
+
       span.thick {
         font-size: 32pt;
         text-decoration: bold;
@@ -129,7 +141,6 @@
     </style>
   </head>
   <body>
-    <form action="#" method="post">
     <div id="container">
       <div class="mainpage">
         <div class="title"><span class="thick">TITLE</span></div>
@@ -148,18 +159,21 @@
         <div class="title">Sidebar</div>
         <p>Projekt:</p>
         <ul>
-          <li><a href="#">Don't click me, asshole</a></li>
-          <li><a href="#">Don't click me</a></li>
-          <li><a href="#">Don't click me</a></li>
-          <li><a href="#">Don't click me</a></li>
-          <li><a href="#">Don't click me</a></li>
-          <li><a href="#">Don't click me</a></li>
+          <li><a href="#"><img class="project" src="small_project.png"/>Don't click me, asshole</a></li>
+          <li><a href="#"><img class="project" src="small_project.png"/>Don't click me</a></li>
+          <li><a href="#"><img class="project" src="small_project.png"/>Don't click me</a></li>
+          <li><a href="#"><img class="project" src="small_project.png"/>Don't click me</a></li>
+          <li><a href="#"><img class="project" src="small_project.png"/>Don't click me</a></li>
+          <li><a href="#"><img class="project" src="small_project.png"/>Don't click me</a></li>
         </ul>
-          <input id="search" type="text" name="text" value="Search for projects!"/>
+        <form action="#" method="post">
+          <div>
+            <input id="search" type="text" name="text" value="Search for projects!"/>
+          </div>
+        </form>
       </div>
 
   	</div>
     <div id="copyleft">&copy; Alexander "Ace" Olofsson, Albin Ekberg</div>
-    </form>
   </body>
 </html>
