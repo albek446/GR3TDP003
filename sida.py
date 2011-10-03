@@ -19,6 +19,7 @@ def get_sidebar_projects():
   return toRet
 
 app.jinja_env.globals.update(get_sidebar_projects=get_sidebar_projects)
+app.jinja_env.globals.update(datalager=data)
 
 @app.route("/")
 def hello():

@@ -33,6 +33,8 @@
         float: left;
         clear: both;
         left: 280px;
+
+        font-size: 8pt;
       }
 
       div.sidebar {
@@ -149,20 +151,56 @@
   </head>
   <body>
     <div id="curPage">
-      <p>[ <a href=".">home</a> ]</p>
+      <p>[ <a href=".">home</a> / <a href="search">search</a> ]</p>
     </div>
     <div id="container">
       <div class="mainpage">
-        <div class="title"><span class="thick">TITLE</span></div>
-        <div id="screenshots"><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/><img src="http://2.bp.blogspot.com/-wh4-T9I4qhg/TVro5ldzoEI/AAAAAAAAAGs/rejHtH1xxAQ/s1600/banan.jpg" alt="Image"/></div>
-        <div id="content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
+        <div class="title"><span class="thick">Search</span></div>
+        <form action="search" method="post">
+          <div id="searchfields">
+            <table>
+            <tr>
+              <td>Search</td>
+              <td>Search fields</td>
+              <td>Sort by</td>
+              <td>Sort order</td>
+              <td>Filter by techniques</td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" name="search" value="Search..."/>
+              </td>
+              <td>
+                <select name="search_fields" multiple="True">
+                  <option value="start_date">Start Date</option>
+                  <option value="end_date">End Date</option>
+                  <option value="project_name">Project Name</option>
+                </select>
+              </td>
+              <td>
+                <select name="sort_by">
+                  <option value="start_date">Start Date</option>
+                  <option value="end_date">End Date</option>
+                  <option value="project_name">Project Name</option>
+                </select>
+              </td>
+              <td>
+                <select name="sort_order">
+                  <option value="asc">Ascending</option>
+                  <option value="desc">Descending</option>
+                </select>
+              </td>
+              <td>
+                <select name="techniques" multiple="True" style="overflow-y:false;">
+                  <option value="ada">Ada</option>
+                  <option value="c++">C++</option>
+                  <option value="csv">Csv</option>
+                  <option value="python">Python</option>
+                </select>
+              </td>
+            </table>
+          </div>
+        </form>
       </div>
 
     	<div class="sidebar">
