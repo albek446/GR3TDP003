@@ -9,145 +9,11 @@
   <head>
     <title></title>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-    <style type="text/css">
-      body {
-        font-family: arial;
-        background-color: #fff;
-        color: #000;
-      }
-
-      a {
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      div#container {
-        padding-left: 266px;
-      }
-
-      div#curPage {
-        position: absolute;
-        float: left;
-        clear: both;
-        left: 280px;
-      }
-
-      div.sidebar {
-        border-right: solid 1px #000;
-        
-        float: left;
-        position: fixed;
-        width: 256px;
-        height: 100%;
-
-        top: 0;
-        left: 0;
-        padding: 5px;
-      }
-
-      div.sidebar p {
-        margin: 5px;
-      }
-
-      div.sidebar ul {
-        list-style-type: none;
-        margin: 15px 2px 15px 4px;
-        padding: 0px;
-      }
-
-      div.sidebar ul li {
-        margin: 2px;
-      }
-
-      div.sidebar ul li a {
-        color: #000;
-      }
-
-      div.mainpage {
-        border: dotted 1px #000;
-        width: 100%;
-      }
-
-      div.title {
-        width: 100%;
-        text-align: center;
-        font-size: 26pt;
-      }
-
-      div.title h2 {
-        margin: 2px;
-      }
-
-      div#screenshots {
-        display: block;
-        text-align: center;
-
-        height: 136px;
-        width: 100%;
-        margin: 2px;
-      }
-
-      div#screenshots img {
-        display: block;
-
-        max-width: 128px;
-        max-height: 128px;
-
-        margin: 12px;
-        float: left;
-
-        border: solid 1px #aaa;
-        box-shadow: 2px 2px 5px #888;
-
-        border-radius: 10px;
-      }
-
-      div#content {
-        margin: 5px;
-      }
-
-      div#copyleft {
-        position: fixed;
-        bottom: 0px;
-        right: 0px;
-        color: #aaa;
-        font-size: 8pt;
-
-        margin: 2px;
-      }
-
-      input#search {
-        position: absolute;
-
-        width: 250px;
-
-        left: 0px;
-        bottom: 0px;
-        margin: 4px 4px 16px;
-      }
-
-      div.fullwidth {
-        width: 100%;
-        text-align: center;
-
-        margin-top: 5px;
-      }
-
-      img.project {
-        margin-right: 4px;
-      }
-
-      span.thick {
-        font-size: 32pt;
-        text-decoration: bold;
-        margin: 2px;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="application/javascript" src="jquery-1.6.4.min.js"></script>
+    <script type="application/javascript" src="scripts.js"></script>
   </head>
-  <body>
+  <body onload="onLoad();">
     <div id="curPage">
       <p>[ <a href=".">home</a> ]</p>
     </div>
@@ -178,7 +44,7 @@
         </ul>
         <form action="#" method="post">
           <div>
-            <input id="search" type="text" name="text" value="Search for projects!"/>
+            <input class="graytext" id="search" type="text" name="text" value="Search for projects!"/>
           </div>
         </form>
       </div>
