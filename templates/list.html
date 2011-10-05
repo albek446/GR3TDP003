@@ -1,0 +1,53 @@
+{% if not jquery %}
+{% extends "layout.html" %}
+{% block content %}
+	<div class="title"><span class="thick">Project list</span></div>
+	<div id="content">
+		<table style="text-align: left">
+			<tr>
+			{% for k in project[0].keys() %}
+					<th>{{k}}</th>
+			{% endfor %}
+			</tr>
+			{% for p in project %}
+				<tr>
+				{% for v in p.values() %}
+					{% if v is sequence and not v is string %}
+						<td>
+							{% for a in v %}
+								{{a}}{% if v.index(a) < v.__len__()-1 %},{% endif %}
+							{% endfor %}
+						</td>
+					{% else %}
+						<td>{{v}}</td>
+					{% endif %}
+				{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+{% endblock %}
+{% else %}
+<table style="text-align: left">
+	<tr>
+	{% for k in project[0].keys() %}
+			<th>{{k}}</th>
+	{% endfor %}
+	</tr>
+	{% for p in project %}
+		<tr>
+		{% for v in p.values() %}
+			{% if v is sequence and not v is string %}
+				<td>
+					{% for a in v %}
+						{{a}}{% if v.index(a) < v.__len__()-1 %},{% endif %}
+					{% endfor %}
+				</td>
+			{% else %}
+				<td>{{v}}</td>
+			{% endif %}
+		{% endfor %}
+		</tr>
+	{% endfor %}
+</table>
+{% endif %}

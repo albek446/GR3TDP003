@@ -5,10 +5,9 @@ function onLoad()
 		{
 			$(this).val("");
 			$(this).removeClass("graytext");
-			$(this).focus();
 		}
 	}, function() {
-		if ($(this).val() == "")
+		if ($(this).val() == "" && !$(this).is(":focus"))
 		{
 			$(this).val("Search for projects!");
 			$(this).addClass("graytext");
@@ -21,6 +20,7 @@ function onLoad()
 		{
 			$(this).val("Search for projects!");
 			$(this).addClass("graytext");
+			$(this).blur();
 		}
 	});
 }
