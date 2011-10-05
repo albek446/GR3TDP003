@@ -1,17 +1,21 @@
 {% if not jquery %}
 {% extends "layout.html" %}
+{% endif %}
 {% block content %}
+	{% if not jquery %}
 	<div class="title"><span class="thick">Project list</span></div>
 	<div id="content">
+	{% endif %}
 		<table style="text-align: left">
 			<tr>
 			{% for k in project[0].keys() %}
-					<th>{{k}}</th>
+					{% if not 'image' in k and not '_no' in k and not '_size' in k and not 'long' in k %}<th>{{k}}</th>{% endif %}
 			{% endfor %}
 			</tr>
 			{% for p in project %}
 				<tr>
-				{% for v in p.values() %}
+				{% for k, v in p.iteritems() %}
+					{% if not 'image' in k and not '_no' in k and not '_size' in k and not 'long' in k %}
 					{% if v is sequence and not v is string %}
 						<td>
 							{% for a in v %}
@@ -21,33 +25,12 @@
 					{% else %}
 						<td>{{v}}</td>
 					{% endif %}
+					{% endif %}
 				{% endfor %}
 				</tr>
 			{% endfor %}
 		</table>
+	{% if not jquery %}
 	</div>
+	{% endif %}
 {% endblock %}
-{% else %}
-<table style="text-align: left">
-	<tr>
-	{% for k in project[0].keys() %}
-			<th>{{k}}</th>
-	{% endfor %}
-	</tr>
-	{% for p in project %}
-		<tr>
-		{% for v in p.values() %}
-			{% if v is sequence and not v is string %}
-				<td>
-					{% for a in v %}
-						{{a}}{% if v.index(a) < v.__len__()-1 %},{% endif %}
-					{% endfor %}
-				</td>
-			{% else %}
-				<td>{{v}}</td>
-			{% endif %}
-		{% endfor %}
-		</tr>
-	{% endfor %}
-</table>
-{% endif %}
