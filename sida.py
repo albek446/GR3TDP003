@@ -1,7 +1,7 @@
 #!/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request
 from datalager import data
 
 app = Flask(__name__)
@@ -19,6 +19,7 @@ def get_sidebar_projects():
   return toRet
 
 app.jinja_env.globals.update(get_sidebar_projects=get_sidebar_projects)
+app.jinja_env.globals.update(datalager=data)
 
 @app.route("/")
 def hello():
@@ -32,9 +33,13 @@ def sida():
 def banan():
   return render_template("banan.html")
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
   return render_template("banan.html")
+
+@app.route("/list")
+def list():
+  return render_template("list.html", project=data.retrieve_projects()[1], jquery='jquery' in request.args)
 
 @app.route("/project/<int:id>")
 def getProj(id):

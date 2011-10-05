@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import csv
-projektLista = []
+projektLista = None
 teknikLista = []
-errorkod = lambda: int(len(projektLista)==0)
+errorkod = lambda: int(projektLista == None)
 unic = lambda val: unicode(val, 'utf-8')
 
 def UnicodeDictReader(utf8_data):
@@ -13,13 +13,8 @@ def UnicodeDictReader(utf8_data):
     for row in csv_reader:
         temp = {}
         for key, value in row.iteritems():
-            if value.isdigit() and key != 'project_name':
-                try:
-                    val = int(value)
-                except ValueError:
-                    val = float(value)
-
-                temp[unic(key)] = val
+            if value.isdigit() and "no" in key.lower():
+                temp[unic(key)] = int(value)
             else:
                 temp[unic(key)] = unic(value)
 
@@ -29,6 +24,7 @@ def UnicodeDictReader(utf8_data):
 
 def init():
     spamReader = UnicodeDictReader(open('data.csv'))
+    tempLista = []
 
     for row in spamReader:
         tekReader = csv.reader([row[u'techniques_used']])
@@ -42,11 +38,17 @@ def init():
                     teknikLista.append(unic(j))
         
         row[u'techniques_used'].sort()
-        projektLista.append(row)
+        tempLista.append(row)
 
     teknikLista.sort()
 
+    global projektLista
+    projektLista = tempLista
+
 def project_count():
+    if errorkod():
+        return (errorkod(), None)
+
     return (errorkod(), len(projektLista))
 
 def lookup_project(id):
@@ -60,21 +62,22 @@ def lookup_project(id):
     return (2, None)
 
 def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, search=None, search_fields=None):
-    returlist = []
+    if errorkod():
+        return (errorkod(), None)
 
+    returlist = []
     for i in projektLista:
         add = False
-
         if search != None and search_fields != None:
             for s in search_fields:
-                if isinstance(i[s], int) or isinstance(i[s], float):
+                if isinstance(i[s], int):
                     sField = unic(str(i[s]))
                 elif isinstance(i[s], list):
                     sField = u','.join(i[s])
                 else:
                     sField = i[s]            
 
-                if sField.lower().find(unic(search).lower()) != -1:
+                if unic(search).lower() in sField.lower():
                     add = True
                     break
         else:
@@ -96,14 +99,19 @@ def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, s
     return (errorkod(), returlist)
 
 def retrieve_techniques():
+    if errorkod():
+        return (errorkod(), None)
+
     return (errorkod(), teknikLista)
 
 def retrieve_technique_stats():
+    if errorkod():
+        return (errorkod(), None)
+
     returlist = []
 
     for tek in teknikLista:
         temp = {u"name": tek, u"count": 0, u"projects": []}
-
         for proj in projektLista:
             if tek in proj[u'techniques_used']:
                 temp[u'count'] += 1
@@ -111,5 +119,4 @@ def retrieve_technique_stats():
                 
         temp[u'projects'].sort(key=lambda p: p[u'name'])
         returlist.append(temp)
-        
     return (errorkod(), returlist)
