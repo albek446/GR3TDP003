@@ -5,7 +5,7 @@
       xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/1999/xhtml
-                          http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
+                          http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">  
   <head>
     <title></title>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
@@ -25,22 +25,37 @@
             <table>
             <tr>
               <td>Search</td>
-              <td>Search fields</td>
-              <td>Sort by</td>
-              <td>Sort order</td>
-              <td>Filter by techniques</td>
             </tr>
             <tr>
               <td>
                 <input type="text" name="search" value="Search..."/>
               </td>
+            <table>
+            <tr>
+              <td>Search fields</td>
+              <td>Filter by techniques</td>
+            </tr>
               <td>
-                <select name="search_fields" multiple="True">
-                  <option value="start_date">Start Date</option>
-                  <option value="end_date">End Date</option>
-                  <option value="project_name">Project Name</option>
-                </select>
+                <form>
+                  <input type="checkbox" value="start_date"/> Start Date<br />
+                  <input type="checkbox" value="end_date"/> End Date<br />
+                  <input type="checkbox" value="Project_name"/> Project Name<br />
+                </form>
+              </td>                            
+              <td>
+                <form>
+                  <input type="checkbox" value="ada"/> Ada<br />
+                  <input type="checkbox" value="c++"/> C++<br />
+                  <input type="checkbox" value="csv"/> Csv<br />
+                  <input type="checkbox" value="python"/> Python<br />
+                </form>
               </td>
+            </table>
+            <table>
+            <tr>
+              <td>Sort by</td>
+              <td>Sort order</td>
+            </tr>
               <td>
                 <select name="sort_by">
                   <option value="start_date">Start Date</option>
@@ -52,14 +67,6 @@
                 <select name="sort_order">
                   <option value="asc">Ascending</option>
                   <option value="desc">Descending</option>
-                </select>
-              </td>
-              <td>
-                <select name="techniques" multiple="True" style="overflow-y:false;">
-                  <option value="ada">Ada</option>
-                  <option value="c++">C++</option>
-                  <option value="csv">Csv</option>
-                  <option value="python">Python</option>
                 </select>
               </td>
             </table>
@@ -81,7 +88,6 @@
             </tr>
         </div>
       </div>
-
     	<div class="sidebar">
         <div class="title">Sidebar</div>
         <p>Projekt:</p>
